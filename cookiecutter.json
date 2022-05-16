@@ -1,0 +1,11 @@
+{
+  "name": "{{ cookiecutter.slug }}",
+  "slug": "the-package",
+
+  "copyright_holder": "VSHN AG <info@vshn.ch>",
+  "copyright_year": "1950",
+
+  "github_owner": "projectsyn",
+  "github_name": "package-{{ cookiecutter.slug }}",
+  "github_url": "https://github.com/{{ cookiecutter.github_owner }}/{{ cookiecutter.github_name }}"
+}
