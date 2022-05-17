@@ -2,6 +2,8 @@
   "name": "the-package",
   "slug": "the-package",
 
+  "add_golden": "y",
+
   "copyright_holder": "VSHN AG <info@vshn.ch>",
   "copyright_year": "2022",
 
