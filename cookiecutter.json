@@ -3,7 +3,7 @@
   "slug": "the-package",
 
   "copyright_holder": "VSHN AG <info@vshn.ch>",
-  "copyright_year": "1950",
+  "copyright_year": "2022",
 
   "github_owner": "projectsyn",
   "__github_name": "package-{{ cookiecutter.slug }}",
