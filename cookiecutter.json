@@ -1,5 +1,5 @@
 {
-  "name": "{{ cookiecutter.slug }}",
+  "name": "the-package",
   "slug": "the-package",
 
   "copyright_holder": "VSHN AG <info@vshn.ch>",
