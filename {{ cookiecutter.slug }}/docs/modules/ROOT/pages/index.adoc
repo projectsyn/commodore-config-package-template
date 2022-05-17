@@ -1,0 +1,3 @@
+= {{ cookiecutter.name }}
+
+{{ cookiecutter.slug }} is a Commodore configuration package to manage {{ cookiecutter.name }}.
