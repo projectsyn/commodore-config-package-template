@@ -6,6 +6,6 @@
   "copyright_year": "1950",
 
   "github_owner": "projectsyn",
-  "github_name": "package-{{ cookiecutter.slug }}",
-  "github_url": "https://github.com/{{ cookiecutter.github_owner }}/{{ cookiecutter.github_name }}"
+  "__github_name": "package-{{ cookiecutter.slug }}",
+  "__github_url": "https://github.com/{{ cookiecutter.github_owner }}/{{ cookiecutter.__github_name }}"
 }
