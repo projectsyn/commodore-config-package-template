@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "config:base",
+    ":gitSignOff",
+    ":disableDependencyDashboard"
+  ],
+{%- if cookiecutter.add_golden == "y" %}
+  "postUpgradeTasks": {
+    "commands": [
+      "make gen-golden-all"
+    ],
+    "fileFilters": [ "tests/golden/**" ],
+    "executionMode": "update"
+  },
+  "suppressNotifications": [ "artifactErrors" ],
+{%- endif %}
+  "labels": [
+    "dependency"
+  ]
+}
