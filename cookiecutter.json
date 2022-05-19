@@ -1,0 +1,13 @@
+{
+  "name": "the-package",
+  "slug": "the-package",
+
+  "add_golden": "y",
+
+  "copyright_holder": "VSHN AG <info@vshn.ch>",
+  "copyright_year": "2022",
+
+  "github_owner": "projectsyn",
+  "__github_name": "package-{{ cookiecutter.slug }}",
+  "__github_url": "https://github.com/{{ cookiecutter.github_owner }}/{{ cookiecutter.__github_name }}"
+}
