@@ -2,6 +2,8 @@
   "name": "the-package",
   "slug": "the-package",
 
+  "test_cases": "defaults",
+
   "add_golden": "y",
 
   "copyright_holder": "VSHN AG <info@vshn.ch>",

@@ -1,3 +1,4 @@
+{%- set test_cases = cookiecutter.test_cases.split(" ") -%}
 # Commodore takes the root dir name as the package name
 PACKAGE_NAME ?= $(shell basename ${PWD} | sed s/package-//)
 
@@ -27,9 +28,9 @@ ANTORA_PREVIEW_CMD ?= $(DOCKER_CMD) run --rm --publish 35729:35729 --publish 202
 COMMODORE_CMD  ?= $(DOCKER_CMD) $(DOCKER_ARGS) $(root_volume) docker.io/projectsyn/commodore:latest
 COMPILE_CMD    ?= $(COMMODORE_CMD) package compile . $(commodore_args)
 
-instance ?= defaults
+instance ?= {{ test_cases[0] }}
 {%- if cookiecutter.add_golden == "y" %}
-test_instances = tests/defaults.yml
+test_instances ={% for instance in test_cases %} tests/{{instance}}.yml{% endfor %}
 {%- endif %}
 
 # We default to expecting a class matching the package name

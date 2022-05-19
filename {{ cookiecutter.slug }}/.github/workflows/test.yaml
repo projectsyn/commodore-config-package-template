@@ -1,3 +1,4 @@
+{%- set test_cases = cookiecutter.test_cases.split(" ") -%}
 name: Pull Request
 on:
   pull_request:
@@ -32,7 +33,9 @@ jobs:
     strategy:
       matrix:
         instance:
-          - defaults
+{%- for instance in test_cases %}
+          - {{ instance }}
+{%- endfor %}
     defaults:
       run:
         working-directory: {% raw %}${{ env.COMPONENT_NAME }}{% endraw %}
@@ -48,7 +51,9 @@ jobs:
     strategy:
       matrix:
         instance:
-          - defaults
+{%- for instance in test_cases %}
+          - {{ instance }}
+{%- endfor %}
     defaults:
       run:
         working-directory: {% raw %}${{ env.COMPONENT_NAME }}{% endraw %}
