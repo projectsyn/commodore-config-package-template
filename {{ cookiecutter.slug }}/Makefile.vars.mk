@@ -3,7 +3,7 @@
 PACKAGE_NAME ?= $(shell basename ${PWD} | sed s/package-//)
 
 root_volume     ?= -v "$${PWD}:/$(PACKAGE_NAME)"
-commodore_args  ?= $(target_class)
+commodore_args  ?= tests/$(instance).yml
 
 ifneq "$(shell which docker 2>/dev/null)" ""
 	DOCKER_CMD    ?= $(shell which docker)
@@ -32,8 +32,3 @@ instance ?= {{ test_cases[0] }}
 {%- if cookiecutter.add_golden == "y" %}
 test_instances ={% for instance in test_cases %} tests/{{instance}}.yml{% endfor %}
 {%- endif %}
-
-# We default to expecting a class matching the package name
-# Users can override this variable by running
-#   make test target_class=<class>.yml
-target_class ?= $(PACKAGE_NAME)
