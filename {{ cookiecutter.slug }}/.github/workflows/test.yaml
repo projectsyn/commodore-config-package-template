@@ -38,11 +38,11 @@ jobs:
 {%- endfor %}
     defaults:
       run:
-        working-directory: {% raw %}${{ env.COMPONENT_NAME }}{% endraw %}
+        working-directory: {% raw %}${{ env.PACKAGE_NAME }}{% endraw %}
     steps:
       - uses: actions/checkout@v3
         with:
-          path: {% raw %}${{ env.COMPONENT_NAME }}{% endraw %}
+          path: {% raw %}${{ env.PACKAGE_NAME }}{% endraw %}
       - name: Compile component
         run: make test -e instance={% raw %}${{ matrix.instance }}{% endraw %}
 {%- if cookiecutter.add_golden == "y" %}
@@ -56,11 +56,11 @@ jobs:
 {%- endfor %}
     defaults:
       run:
-        working-directory: {% raw %}${{ env.COMPONENT_NAME }}{% endraw %}
+        working-directory: {% raw %}${{ env.PACKAGE_NAME }}{% endraw %}
     steps:
       - uses: actions/checkout@v3
         with:
-          path: {% raw %}${{ env.COMPONENT_NAME }}{% endraw %}
+          path: {% raw %}${{ env.PACKAGE_NAME }}{% endraw %}
       - name: Golden diff
         run: make golden-diff -e instance={% raw %}${{ matrix.instance }}{% endraw %}
 {%- endif %}
