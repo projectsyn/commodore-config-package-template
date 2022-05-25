@@ -46,11 +46,11 @@ test: .compile ## Compile the package
 gen-golden: clean .compile ## Update the reference version for target `golden-diff`.
 	@rm -rf tests/golden/$(instance)
 	@mkdir -p tests/golden/$(instance)
-	@cp -R tmp/compiled/. tests/golden/$(instance)/.
+	@cp -R compiled/. tests/golden/$(instance)/.
 
 .PHONY: golden-diff
 golden-diff: clean .compile ## Diff compile output against the reference version. Review output and run `make gen-golden golden-diff` if this target fails.
-	@git diff --exit-code --minimal --no-index -- tests/golden/$(instance) tmp/compiled/
+	@git diff --exit-code --minimal --no-index -- tests/golden/$(instance) compiled/
 
 .PHONY: golden-diff-all
 golden-diff-all: recursive_target=golden-diff
