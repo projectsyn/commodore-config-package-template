@@ -1,4 +1,4 @@
-name: {{ cookiecutter.slug }}
+name: package-{{ cookiecutter.slug }}
 title: {{ cookiecutter.name }}
 version: master
 start_page: ROOT:index.adoc
