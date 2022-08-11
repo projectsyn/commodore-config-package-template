@@ -1,0 +1,46 @@
+name: Sync (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      sync_args:
+        required: true
+        type: string
+    secrets:
+      ssh_key:
+        required: true
+      gh_token:
+        required: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.commodore-venv/
+          key: ${{ runner.os }}-commodore-${{ hashFiles('requirements.txt') }}
+      - name: Install Commodore
+        run: |
+          python3 -m venv ~/.commodore-venv/
+          source ~/.commodore-venv/bin/activate
+          pip install -r requirements.txt
+      - name: Configure Git
+        run: |
+          git config --global user.name "$GITHUB_ACTOR"
+          git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+            ssh-private-key: ${{ secrets.ssh_key }}
+      - name: Run Commodore package sync
+        env:
+          COMMODORE_GITHUB_TOKEN: ${{ secrets.gh_token }}
+        run: |
+          . ~/.commodore-venv/bin/activate
+          commodore package sync packages.yaml --pr-label template-sync --pr-branch template-sync ${{ inputs.sync_args }}

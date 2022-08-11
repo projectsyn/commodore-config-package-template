@@ -1,0 +1,13 @@
+name: Sync (dry-run)
+
+on:
+  pull_request: {}
+
+jobs:
+  sync_dry_run:
+    uses: ./.github/workflows/sync_base.yaml
+    with:
+      sync_args: '--dry-run'
+    secrets:
+      gh_token: ${{ secrets.COMMODORE_GITHUB_TOKEN }}
+      ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}

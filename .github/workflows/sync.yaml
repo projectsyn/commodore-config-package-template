@@ -1,0 +1,19 @@
+name: Sync
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+    paths:
+      - '{{ cookiecutter.slug }}/**'
+      - 'hooks/**'
+
+jobs:
+  sync:
+    uses: ./.github/workflows/sync_base.yaml
+    with:
+      sync_args: ''
+    secrets:
+      gh_token: ${{ secrets.COMMODORE_GITHUB_TOKEN }}
+      ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
