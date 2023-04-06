@@ -27,4 +27,7 @@ indent_style = tab
 
 # Don't check for trailing newlines in golden tests output
 [tests/golden/**]
+indent_size = unset
+indent_style = unset
 insert_final_newline = unset
+trim_trailing_whitespace = unset
