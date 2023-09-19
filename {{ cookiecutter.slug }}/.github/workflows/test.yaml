@@ -18,13 +18,13 @@ jobs:
           - lint_adoc
           - lint_commodore
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Run {% raw %}${{ matrix.command }}{% endraw %}
         run: make {% raw %}${{ matrix.command }}{% endraw %}
   editorconfig:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: snow-actions/eclint@v1.0.1
         with:
           args: 'check'
@@ -40,7 +40,7 @@ jobs:
       run:
         working-directory: {% raw %}${{ env.PACKAGE_NAME }}{% endraw %}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           path: {% raw %}${{ env.PACKAGE_NAME }}{% endraw %}
       - name: Compile component
@@ -58,7 +58,7 @@ jobs:
       run:
         working-directory: {% raw %}${{ env.PACKAGE_NAME }}{% endraw %}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           path: {% raw %}${{ env.PACKAGE_NAME }}{% endraw %}
       - name: Golden diff
