@@ -6,6 +6,15 @@
 
   "add_golden": "y",
 
+  "automerge_patch": "y",
+  "automerge_patch_v0": "n",
+
+  "automerge_patch_regexp_blocklist": "",
+  "automerge_patch_v0_regexp_allowlist": "",
+  "automerge_minor_regexp_allowlist": "",
+
+  "auto_release": "y",
+
   "copyright_holder": "VSHN AG <info@vshn.ch>",
   "copyright_year": "2022",
 
