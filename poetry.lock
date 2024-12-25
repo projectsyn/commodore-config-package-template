@@ -225,24 +225,25 @@ rich = "*"
 
 [[package]]
 name = "cruft"
-version = "2.15.0"
+version = "2.16.0"
 description = "Allows you to maintain all the necessary cruft for packaging and building projects separate from the code you intentionally write. Built on-top of CookieCutter."
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "cruft-2.15.0-py3-none-any.whl", hash = "sha256:2c1c6c7c512b8bc3afc66cefa829247dc067409a78ba2609d629d413444bc153"},
-    {file = "cruft-2.15.0.tar.gz", hash = "sha256:9802af66037418655e7e4b6f30b531591e0761939b3ff5dd45d27c3a3f588abe"},
+    {file = "cruft-2.16.0-py3-none-any.whl", hash = "sha256:96adb81f814300a9db0fca690eaa063547f5d3c25f486ac0a366cf8da5cdfb79"},
+    {file = "cruft-2.16.0.tar.gz", hash = "sha256:184662853fbc1c16c0137fe0e9444e0cbe95e40362f5ebb2d9fae33d9223e73f"},
 ]
 
 [package.dependencies]
 click = ">=7.1.2"
 cookiecutter = ">=1.7"
 gitpython = ">=3.0"
+toml = {version = ">=0.10", markers = "python_version < \"3.11\""}
 typer = ">=0.4.0"
 
 [package.extras]
-pyproject = ["toml (>=0.10)"]
+pyproject = ["toml"]
 
 [[package]]
 name = "gitdb"
@@ -617,6 +618,18 @@ python-versions = "*"
 files = [
     {file = "text-unidecode-1.3.tar.gz", hash = "sha256:bad6603bb14d279193107714b288be206cac565dfa49aa5b105294dd5c4aab93"},
     {file = "text_unidecode-1.3-py2.py3-none-any.whl", hash = "sha256:1311f10e8b895935241623731c2ba64f4c455287888b18189350b67134a822e8"},
+]
+
+[[package]]
+name = "toml"
+version = "0.10.2"
+description = "Python Library for Tom's Obvious, Minimal Language"
+category = "main"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+files = [
+    {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
+    {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
 ]
 
 [[package]]
